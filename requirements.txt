@@ -1,0 +1,8 @@
+langchain==0.3.23
+lida==0.0.14
+openai==1.72.0
+pandas==2.2.3
+Pillow==11.1.0
+python-dotenv==1.1.0
+streamlit==1.41.1
+reportlab==4.3.1

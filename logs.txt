@@ -1,0 +1,107 @@
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df_merged is already loaded with the CSV data
+
+# Convert 'order_time' to datetime
+df_merged['order_time'] = pd.to_datetime(df_merged['order_time'])
+
+# Extract month from 'order_time'
+df_merged['order_month'] = df_merged['order_time'].dt.month
+
+# Group by month and count the number of orders
+monthly_sales = df_merged.groupby('order_month')['order_id'].nunique()
+
+# Create a DataFrame for analysis
+Final_Output = monthly_sales.reset_index()
+Final_Output.columns = ['Month', 'Unique_Orders']
+
+# Display the output
+print(Final_Output)
+
+# Plotting the sales trend
+plt.figure(figsize=(10, 6))
+plt.plot(Final_Output['Month'], Final_Output['Unique_Orders'], marker='o')
+plt.title('Monthly Sales Trend')
+plt.xlabel('Month')
+plt.ylabel('Number of Unique Orders')
+plt.xticks(Final_Output['Month'], ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
+plt.grid(True)
+plt.tight_layout()
+
+# Store the graph in a variable
+Final_Graph = plt
+
+# Display the graph
+plt.show()
+
+# Note: The graph will help visualize any differences in sales trends in May compared to previous months.
+
+
+import openai
+import os
+import matplotlib.pyplot as plt
+
+openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+# Case 1: If Final_Output is a matplotlib figure (assumed to be shown already)
+if isinstance(Final_Output, plt.Figure):
+    print("Case 1")
+    image_path = "plot_output.png"
+    Final_Output.savefig(image_path)
+    final_output_str = "A graph has been generated and saved as 'plot_output.png'."
+    import base64
+    client = OpenAI(
+        api_key=os.getenv("OPENAI_API_KEY")
+    )
+
+    prompt = "Based on this image, analyse it and give a proper answer to the question 'What differs sales trend in may compared previous months' (answer the question using the language that is used in the query)"
+
+    # Function to encode the image
+    def encode_image(image_path):
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode("utf-8")
+        
+    # Encode the image
+    base64_image = encode_image(image_path)
+
+    # Create chat completion
+    try:
+        chat_completion = client.chat.completions.create(
+            model="gpt-4o",
+            max_tokens=300,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        )
+        print("----------------------------------")
+        Final_Reply = chat_completion.choices[0].message.content
+    except Exception as e:
+        print(f"An error occured: {e}")
+    
+# Case 2: If Final_Output is a plot shown via plt (stateful)
+
+
+# Case 3: If it's just textual or tabular data
+else:
+    print("Case 3")
+    final_output_str = str(Final_Output)
+    query = f"""Based on final output : {Final_Output}, provide a proper answer to the query which is 'What differs sales trend in may compared previous months' (answer the question using the language that is used in the query)"""
+    print(query)
+    print("----------------------------------")
+    Final_Reply = get_ai_reply(query)
