@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/fcb9d1d0-7cb6-4210-b24c-62532a11d8e4)
+![image](https://github.com/user-attachments/assets/ff6cd1ec-d8e3-44ad-b8d8-283296745f07)
+
 Grab Merchant AI Assistant
 An intelligent, chat-based assistant that empowers merchant-partners with real-time business insights, personalized recommendations, and operational alerts. Designed for Southeast Asia’s dynamic markets, it supports multilingual, colloquial communication and delivers clear, actionable guidance with visual dashboards. Built to drive engagement, fast decisions, and growth.
 
