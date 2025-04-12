@@ -1,7 +1,7 @@
 ![image](https://github.com/user-attachments/assets/ff6cd1ec-d8e3-44ad-b8d8-283296745f07)
 
 # Our Presentation Slide
-https://www.canva.com/design/DAGWv1yJu08/v9KLiuFKNxirxe7JLXwhWg/edit?utm_content=DAGWv1yJu08&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGkPyNxdnk/phOQBOu-WcV5wduhDWe9FQ/edit?utm_content=DAGkPyNxdnk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+https://www.canva.com/design/DAGkPyNxdnk/phOQBOu-WcV5wduhDWe9FQ/edit?utm_content=DAGkPyNxdnk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # Video Demo
 https://drive.google.com/file/d/1fMxieIQ0uEM6cqL2iyphSNGnb6_Rev89/view?usp=sharing
